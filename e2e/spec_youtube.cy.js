@@ -1,0 +1,18 @@
+describe('template spec', () => {
+  it('passes', () => {
+    cy.visit('https://youtube.com')
+    cy.get('#search-input > #search').type('which is worse: Kaspersky or Windows Defender')
+    cy.get('#search-icon-legacy').click()
+    cy.wait(10000)
+    cy.scrollTo(0, 700)
+    cy.wait(2000)
+    cy.contains('Antivirus Tierlist: The Best Antivirus Comparison (2022)').click()
+    cy.wait(17000)
+    cy.get('.ytp-ad-skip-button').click()
+    cy.wait(15000)
+    cy.get('.ytp-autonav-toggle-button').click()
+    cy.get('.ytp-settings-button').click()
+    cy.contains('Playback speed').click()
+    cy.contains('1.5').click()
+  })
+})
